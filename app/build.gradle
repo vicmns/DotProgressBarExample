@@ -1,31 +1,30 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "24.0.2"
+    compileSdkVersion versions.target_sdk
 
-  lintOptions {
-    abortOnError false
-  }
-
-  defaultConfig {
-    applicationId "com.silvestr.dotprogressbarexample"
-    minSdkVersion 15
-    targetSdkVersion 25
-    versionCode 3
-    versionName "1.2"
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    lintOptions {
+        abortOnError false
     }
-  }
+
+    defaultConfig {
+        applicationId "com.silvestr.dotprogressbarexample"
+        minSdkVersion versions.min_sdk
+        targetSdkVersion versions.target_sdk
+        versionCode 3
+        versionName "1.2"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
-  compile project(':dot-progress-bar')
-  compile 'com.github.bumptech.glide:glide:3.7.0'
-  compile 'com.android.support:support-v4:25.1.0'
-  compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+    compile project(':dot-progress-bar')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile "com.android.support:appcompat-v7:$versions.support"
+    compile "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
 }
